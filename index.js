@@ -70,11 +70,11 @@ const shuffle = (list) => {
     
     const randomUrls = shuffle(urls);
     
-    const cardElements = document.querySelectorAll('.card img');
+    const cardElements = document.getElementsByClassName('card');
+
+    for (let i = 0; i < cardElements.length; i++) {
+        cardElements[i].getElementsByTagName('img')[0].src = randomUrls[i];
+    }
     
-    cardElements.forEach((image, index) => {
-        image.src = randomUrls[index];
-    });
-    
-    const h1Element = document.querySelector('h1');
-    h1Element.textContent += '!';
+    const h1Element = document.getElementsByTagName('h1');
+    h1Element[0].textContent += '!';
